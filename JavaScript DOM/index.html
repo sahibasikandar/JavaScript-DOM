@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    
+      let mainContent = document.getElementById("main-content");
+      let childElements = mainContent.children;
+      for (let i = 0; i < childElements.length; i++) {
+        console.log(childElements[i]);
+      }
+
+     
+      let renderElements = document.getElementsByClassName("render");
+      for (let j = 0; j < renderElements.length; j++) {
+        console.log(renderElements[j].innerHTML);
+      }
+
+    
+      document.getElementById("first-name").value = "Alex";
+    
+      document.getElementById("last-name").value = "bank";
+      document.getElementById("email").value ="alexbank@example.com" ;
+
+   
+      let formContent = document.getElementById("form-content");
+      console.log("Node type of element with id 'form-content':", formContent.nodeType);
+
+     
+      let lastName = document.getElementById("lastName");
+      console.log("Node type of element with id 'lastName':", lastName.nodeType);
+      console.log("Child node of element with id 'lastName':", lastName.firstChild.nodeType);
+
+    
+      lastName.firstChild.nodeValue = "New Last Name";
+
+    
+      console.log("First child of element with id 'main-content':", mainContent.firstChild);
+      console.log("Last child of element with id 'main-content':", mainContent.lastChild);
+
+      let nextSibling = lastName.nextSibling;
+      let previousSibling = lastName.previousSibling;
+      console.log("Next sibling of element with id 'lastName':", nextSibling);
+      console.log("Previous sibling of element with id 'lastName':", previousSibling);
+
+ 
+      let email = document.getElementById("email");
+      let parentNode = email.parentNode;
+      console.log("Parent node of element with id 'email':", parentNode);
+      console.log("Node type of element with id 'email':", email.nodeType);
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <h1>DOM</h1>
+    <div id="form-content" class="content">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" />
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" />
+      <label for="email">Email</label>
+      <input type="text" id="email" />
+    </div>
+    <div id="main-content" class="content">
+      <p class="render">First Name: Alex</p>
+      <p class="render" id="lastName">Last Name: Bank</p>
+      <p class="render">Email: alexbank@example.com</p>
+      <p class="render">Country: Pakistan</p>
+      <p class="render">Contact: +92 300 1234567</p>
+    </div>
+  </div>
+</body>
+</html>
